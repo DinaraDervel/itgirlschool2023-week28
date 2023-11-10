@@ -1,0 +1,63 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+h1 {
+  color: #ffffff;
+}
+.page {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px;
+}
+.form {
+  flex-basis: 50%;
+  position: relative;
+  z-index: 1;
+  background: #ffffff;
+  max-width: 500px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.fieldset {
+  display: flex;
+  text-align: left;
+  border: 1px solid #5bc161;
+  margin-bottom: 15px;
+}
+
+.form input,
+.form textarea {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.form input[type="radio"] {
+  width: fit-content;
+  margin-left: 15px;
+}
+.form input[type="submit"] {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #4caf50;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #ffffff;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+.form input[type="submit"]:hover,
+.form input[type="submit"]:active,
+.form input[type="submit"]:focus {
+  background: #43a047;
+}
