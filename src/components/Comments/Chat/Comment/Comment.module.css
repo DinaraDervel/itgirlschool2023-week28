@@ -1,0 +1,29 @@
+.chat {
+  max-height: 500px;
+  overflow-y: scroll;
+}
+
+.card {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: left;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.cardName {
+  flex-basis: 30%;
+  font-weight: bolder;
+}
+.cardDate {
+  flex-basis: 30%;
+  font-style: italic;
+  font-size: smaller;
+}
+.cardImg {
+  width: 50px;
+  max-width: 100%;
+}
+.cardComment {
+  flex-basis: 100%;
+}
