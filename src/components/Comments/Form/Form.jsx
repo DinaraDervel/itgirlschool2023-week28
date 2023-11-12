@@ -5,7 +5,7 @@ class Form extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      showName: "true",
+      showName: "yes",
       name: "",
       avatar: "",
       comment: "",
@@ -13,13 +13,15 @@ class Form extends React.Component {
     };
   }
 
+  setLocalStorage = () =>
+    localStorage.setItem("newComment", JSON.stringify(this.state));
+
   onInputChange = (e) => {
     let newValue = e.target.value;
     if (e.target.name === "name") newValue = this.checkName(e.target.value);
     if (e.target.name === "comment") newValue = this.checkSpam(e.target.value);
     this.setState({ date: this.parseDate(new Date()) });
-    this.setState({ [e.target.name]: newValue });
-    localStorage.setItem("newComment", JSON.stringify(this.state));
+    this.setState({ [e.target.name]: newValue }, this.setLocalStorage);
   };
 
   resetForm = () => {
@@ -120,31 +122,30 @@ class Form extends React.Component {
 
   render() {
     return (
-      <form
-        className={s.form}
-        id="form"
-        onSubmit={this.props.publishComment.bind(this)}
-      >
+      <form className={s.form} id="form" onSubmit={this.props.publishComment}>
         <h2>Add your comment</h2>
-        <fieldset
-          className={s.fieldset}
-          name="showName"
-          value={this.showName}
-          onChange={this.onInputChange}
-        >
+        <fieldset className={s.fieldset}>
           <legend>Show your name?</legend>
           <div>
             <input
               type="radio"
               id="yes"
               name="showName"
-              value="true"
-              defaultChecked
+              value="yes"
+              checked={this.state.showName === "yes"}
+              onChange={this.onInputChange}
             />
             <label htmlFor="yes">Yes</label>
           </div>
           <div>
-            <input type="radio" id="no" name="showName" value="false" />
+            <input
+              type="radio"
+              id="no"
+              name="showName"
+              value="no"
+              checked={this.state.showName === "no"}
+              onChange={this.onInputChange}
+            />
             <label htmlFor="no">No</label>
           </div>
         </fieldset>

@@ -4,12 +4,20 @@
 }
 
 .card {
+  padding: 10px;
   display: flex;
   flex-wrap: wrap;
   text-align: left;
   align-items: center;
   justify-content: space-between;
   gap: 20px;
+}
+.first {
+  background: linear-gradient(
+    90deg,
+    rgba(141, 194, 111, 1) 0%,
+    rgba(118, 184, 82, 1) 50%
+  );
 }
 .cardName {
   flex-basis: 30%;

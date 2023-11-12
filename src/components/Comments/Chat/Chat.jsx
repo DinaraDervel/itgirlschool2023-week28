@@ -7,9 +7,11 @@ class Chat extends React.Component {
     return (
       <div className={s.form}>
         <h2>Chat</h2>
-        {this.props.comments.map((card) => (
-          <Comment data={card} key={card.date} />
-        ))}
+        {this.props.comments.map((card, index) => {
+          if (index === 0)
+            return <Comment class="first" data={card} key={card.date} />;
+          else return <Comment data={card} key={card.date} />;
+        })}
       </div>
     );
   }
