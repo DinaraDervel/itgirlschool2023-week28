@@ -25,13 +25,16 @@ class Form extends React.Component {
   };
 
   resetForm = () => {
-    this.setState({
-      showName: "true",
-      name: "",
-      avatar: "",
-      comment: "",
-      date: "",
-    });
+    this.setState(
+      {
+        showName: "yes",
+        name: "",
+        avatar: "",
+        comment: "",
+        date: "",
+      },
+      this.setLocalStorage
+    );
   };
 
   checkName = (str) => {
@@ -176,6 +179,7 @@ class Form extends React.Component {
           onChange={this.onInputChange}
         ></textarea>
         <input type="submit" value="Post" />
+        <input type="button" value="Reset form" onClick={this.resetForm} />
       </form>
     );
   }
