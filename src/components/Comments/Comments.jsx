@@ -7,15 +7,18 @@ class Comments extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      comments: [],
+      comments: localStorage.getItem("comments")
+        ? JSON.parse(localStorage.getItem("comments"))
+        : [],
     };
   }
   publishComment = (e) => {
-    e.preventDefault();
     let newComment = localStorage.getItem("newComment");
     newComment = newComment ? JSON.parse(newComment) : {};
     this.state.comments.unshift(newComment);
     this.setState(this.state.comments);
+    localStorage.setItem("comments", JSON.stringify(this.state.comments));
+    localStorage.setItem("newComment", JSON.stringify({}));
     console.log(this.state.comments);
   };
   render() {
