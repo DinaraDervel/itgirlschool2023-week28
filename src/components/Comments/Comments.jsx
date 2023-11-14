@@ -16,7 +16,7 @@ class Comments extends React.Component {
     let newComment = localStorage.getItem("newComment");
     newComment = newComment ? JSON.parse(newComment) : {};
     this.state.comments.unshift(newComment);
-    this.setState(this.state.comments);
+    this.setState({ comments: this.state.comments });
     localStorage.setItem("comments", JSON.stringify(this.state.comments));
     localStorage.setItem("newComment", JSON.stringify({}));
     console.log(this.state.comments);

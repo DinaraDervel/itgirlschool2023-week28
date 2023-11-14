@@ -20,14 +20,15 @@ class Form extends React.Component {
     let newValue = e.target.value;
     if (e.target.name === "name") newValue = this.checkName(e.target.value);
     if (e.target.name === "comment") newValue = this.checkSpam(e.target.value);
-    this.setState({ date: this.parseDate(new Date()) });
-    this.setState({ [e.target.name]: newValue }, this.setLocalStorage);
+    this.setState(
+      { date: this.parseDate(new Date()), [e.target.name]: newValue },
+      this.setLocalStorage
+    );
   };
 
   checkName = (str) => {
     let name = str.toLowerCase().split(" ");
     for (let i = 0; i < name.length; i++) {
-      name[i] = name[i].replaceAll(" ", "");
       const firstLetter = name[i] ? name[i][0].toUpperCase() : "";
       name[i] = firstLetter + name[i].slice(1);
     }
